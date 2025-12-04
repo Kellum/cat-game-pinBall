@@ -49,7 +49,7 @@ src/
 |-----|---------|
 | [ASSET_GUIDE.md](./ASSET_GUIDE.md) | Art asset sizes and formats |
 | [CONVENTIONS.md](./CONVENTIONS.md) | Project conventions and rationale |
-| [checkpoint.md](./checkpoint.md) | Development session logs |
+| [checkpoints/](./checkpoints/README.md) | Development session logs |
 
 ## Canvas
 
