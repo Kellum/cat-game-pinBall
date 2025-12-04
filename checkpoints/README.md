@@ -35,6 +35,7 @@ Development session logs for Cat Game Pinball.
 
 ## Quick Links
 
+- [Checkpoints Guide](./GUIDE.md) - How to use this system
 - [Tags Index](./tags.md) - Find sessions by topic
 - [Asset Guide](../ASSET_GUIDE.md) - Art specifications
 - [Conventions](../CONVENTIONS.md) - Project decisions explained
