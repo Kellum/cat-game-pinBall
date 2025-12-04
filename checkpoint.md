@@ -103,6 +103,84 @@ cat-game-pinball/
 
 ---
 
+## Session: December 4, 2024 - Pivot to Pinball Roguelike & Documentation
+
+### Session Goals
+- Define art asset specifications for game pivot (endless scroller → pinball roguelike hybrid)
+- Create documentation for onboarding contributors
+- Set up GitHub repository
+
+### Work Completed
+
+**Game Direction Pivot:**
+- Decided to shift from infinite scroller to pinball/roguelike hybrid
+- Core concept: Pinball main mechanics + roguelike upgrade system between runs
+- Tech stack remains unchanged (Phaser 3 + TypeScript + Matter.js)
+
+**Asset Guide Created (`ASSET_GUIDE.md`):**
+- Defined image formats (PNG-24 for sprites, JPG for backgrounds)
+- Specified asset sizes for 720x1280 canvas:
+  - Player cat: 128x128 px
+  - Board background: 720x1280 px
+  - Enemies: 64x64 px (small), 96x96 px (large)
+  - Flipper: 120x40 px
+  - Bumper: 64x64 px
+  - UI icons: 48x48 px
+  - Upgrade cards: 180x240 px
+- Defined minimum test kit (6 assets to get started)
+- Established file organization structure
+
+**Conventions Doc Created (`CONVENTIONS.md`):**
+- Documented tech stack rationale (why Phaser, TypeScript, Vite)
+- Explained canvas dimensions choice (720x1280 for mobile-first)
+- Detailed image format decisions (PNG vs JPG vs WebP vs SVG)
+- Explained "Power of 2" textures (why it doesn't matter for WebGL/Phaser)
+- Documented asset sizing reasoning
+- Outlined code conventions and scene structure
+
+**GitHub Repository Setup:**
+- Created repo: https://github.com/Kellum/cat-game-pinBall
+- Pushed initial codebase + new documentation
+- 3 commits: Initial, Asset Guide, Conventions
+
+### Key Decisions
+1. **Pinball + Roguelike hybrid** - Combines satisfying physics gameplay with meta-progression
+2. **PNG-24 for sprites** - Lossless with alpha, universal support
+3. **128px player sprite** - 2x render size for crisp scaling on retina
+4. **No power-of-2 constraint** - Modern WebGL handles NPOT textures fine
+5. **Separate docs** - ASSET_GUIDE (quick reference) vs CONVENTIONS (deep explanations)
+
+### Challenges & Solutions
+
+| Challenge | Solution |
+|-----------|----------|
+| No gh CLI installed | User created GitHub repo manually via web |
+| No Homebrew available | Skipped CLI installation, used manual workflow |
+| Asset size questions | Researched Phaser/WebGL capabilities, documented reasoning |
+
+### Current State
+- Repository live at https://github.com/Kellum/cat-game-pinBall
+- Documentation ready for artists/contributors
+- Awaiting art assets for pinball prototype
+
+### Files Created/Modified
+```
+cat-game-pinball/
+├── ASSET_GUIDE.md      # NEW - Quick reference for asset specs
+├── CONVENTIONS.md      # NEW - Project conventions & rationale
+├── checkpoint.md       # Updated with this session
+└── README.md           # NEW - Project overview
+```
+
+### Next Steps
+1. Receive test art assets (6-piece minimum kit)
+2. Implement pinball table layout (flippers, bumpers, rails)
+3. Add flipper controls (touch/click zones)
+4. Design roguelike upgrade system
+5. Create upgrade selection UI between rounds
+
+---
+
 ## Session: December 1, 2024 - Endless Mode & Menu System
 
 ### Session Goals
