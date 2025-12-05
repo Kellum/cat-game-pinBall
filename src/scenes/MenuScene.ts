@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { GAME_WIDTH, GAME_HEIGHT } from '../config/gameConfig';
+import { RunState } from '../systems/RunState';
 
 interface CatOption {
   name: string;
@@ -67,14 +68,14 @@ export class MenuScene extends Phaser.Scene {
       strokeThickness: 3,
     }).setOrigin(0.5);
 
-    this.add.text(GAME_WIDTH / 2, GAME_HEIGHT - 160, 'Hit enemies to stay airborne!', {
+    this.add.text(GAME_WIDTH / 2, GAME_HEIGHT - 160, 'Tap left/right to flip!', {
       fontSize: '24px',
       color: '#ffffff',
       stroke: '#000000',
       strokeThickness: 3,
     }).setOrigin(0.5);
 
-    this.add.text(GAME_WIDTH / 2, GAME_HEIGHT - 120, 'Bounce off platforms to go higher!', {
+    this.add.text(GAME_WIDTH / 2, GAME_HEIGHT - 120, 'Hit bumpers to score points!', {
       fontSize: '24px',
       color: '#ffffff',
       stroke: '#000000',
@@ -231,8 +232,11 @@ export class MenuScene extends Phaser.Scene {
     // Stop any tweens
     this.tweens.killAll();
 
-    // Transition to game scene with selected cat data
-    this.scene.start('GameScene', {
+    // Initialize a new run with selected character
+    RunState.getInstance().newRun(this.selectedCat.name.toLowerCase(), this.selectedCat.color);
+
+    // Transition to pinball scene with selected cat data
+    this.scene.start('PinballScene', {
       catName: this.selectedCat.name,
       catColor: this.selectedCat.color,
     });
