@@ -8,6 +8,7 @@ Development session logs for Cat Game Pinball.
 
 | Date | Session | Tags |
 |------|---------|------|
+| 2024-12-06 | [MVP Complete](./2024-12-06-a-mvp-complete.md) | `#gameplay` `#pinball` `#roguelike` `#upgrades` `#physics` |
 | 2024-12-04 | [Documentation & Pivot](./2024-12-04-a-docs.md) | `#docs` `#pivot` `#assets` `#github` |
 | 2024-12-01 | [Endless Mode & Menu](./2024-12-01-b-endless.md) | `#gameplay` `#ui` `#menu` `#procedural` |
 | 2024-12-01 | [Initial MVP Build](./2024-12-01-a-mvp.md) | `#setup` `#mvp` `#physics` `#gameplay` |
@@ -19,17 +20,17 @@ Development session logs for Cat Game Pinball.
 - Repository: https://github.com/Kellum/cat-game-pinBall
 - Direction: Pinball + Roguelike hybrid
 - Tech: Phaser 3 + TypeScript + Matter.js + Vite
-- Status: Awaiting art assets for pinball prototype
+- Status: **MVP Complete** - playable game loop with upgrades
 
 ---
 
 ## Next Steps
 
-1. Receive test art assets (6-piece minimum kit)
-2. Implement pinball table layout (flippers, bumpers, rails)
-3. Add flipper controls (touch/click zones)
-4. Design roguelike upgrade system
-5. Create upgrade selection UI between rounds
+1. Test and tune physics feel (flipper response, bounce force)
+2. Add visual feedback (screen shake, particles)
+3. Add sound effects (bumper, flipper, launch, drain)
+4. Add more upgrades for build variety
+5. Replace placeholder graphics with art assets
 
 ---
 
