@@ -330,14 +330,17 @@ export class PinballScene extends Phaser.Scene {
     if (pullDistanceY <= 0) return;
 
     const pullDistanceX = this.dragCurrentX - this.dragStartX;
-    const maxPull = GAME_HEIGHT * 0.5;
-    const normalizedPullY = Math.min(pullDistanceY / maxPull, 1);
-    const normalizedPullX = pullDistanceX / maxPull;
+    const maxPull = GAME_HEIGHT * 0.3;
+
+    // Match launchCat logic
+    const rawPullY = Math.min(pullDistanceY / maxPull, 1);
+    const normalizedPullY = 0.4 + rawPullY * 0.6;
+    const normalizedPullX = Math.max(-1, Math.min(pullDistanceX / maxPull, 1));
 
     // Apply launch power multiplier
     const powerMultiplier = this.runState.getLaunchPowerMultiplier();
-    const launchVelocityY = -normalizedPullY * 45 * powerMultiplier;
-    const launchVelocityX = -normalizedPullX * 25 * powerMultiplier;
+    const launchVelocityY = -normalizedPullY * 40 * powerMultiplier;
+    const launchVelocityX = -normalizedPullX * 15 * powerMultiplier;
 
     // Draw trajectory preview
     this.launchLine.lineStyle(5, 0xffff00, 0.9);
@@ -378,14 +381,19 @@ export class PinballScene extends Phaser.Scene {
   }
 
   private launchCat(pullDistanceX: number, pullDistanceY: number): void {
-    const maxPull = GAME_HEIGHT * 0.5;
-    const normalizedPullY = Math.min(pullDistanceY / maxPull, 1);
-    const normalizedPullX = pullDistanceX / maxPull;
+    const maxPull = GAME_HEIGHT * 0.3; // Reduced max pull distance for easier aiming
+
+    // Normalize with minimum power floor of 40%
+    const rawPullY = Math.min(pullDistanceY / maxPull, 1);
+    const normalizedPullY = 0.4 + rawPullY * 0.6; // Range: 0.4 to 1.0
+
+    // Cap horizontal to prevent crazy sideways launches
+    const normalizedPullX = Math.max(-1, Math.min(pullDistanceX / maxPull, 1));
 
     // Apply launch power multiplier
     const powerMultiplier = this.runState.getLaunchPowerMultiplier();
-    const launchVelocityY = normalizedPullY * 45 * powerMultiplier;
-    const launchVelocityX = normalizedPullX * 25 * powerMultiplier;
+    const launchVelocityY = normalizedPullY * 40 * powerMultiplier;
+    const launchVelocityX = normalizedPullX * 15 * powerMultiplier;
 
     // Slingshot: opposite direction of pull
     this.cat.launch(-launchVelocityX, -launchVelocityY);

@@ -82,8 +82,8 @@ export class UIScene extends Phaser.Scene {
     // Update display
     this.updateDisplay();
 
-    // Listen for updates from GameScene
-    const gameScene = this.scene.get('GameScene');
+    // Listen for updates from PinballScene
+    const gameScene = this.scene.get('PinballScene');
     gameScene.events.on('updateUI', (data: UIData) => {
       this.uiData = data;
       this.updateDisplay();
@@ -199,19 +199,19 @@ export class UIScene extends Phaser.Scene {
     this.isPaused = !this.isPaused;
     this.pauseOverlay.setVisible(this.isPaused);
 
-    const gameScene = this.scene.get('GameScene');
+    const pinballScene = this.scene.get('PinballScene');
     if (this.isPaused) {
-      gameScene.scene.pause();
+      pinballScene.scene.pause();
     } else {
-      gameScene.scene.resume();
+      pinballScene.scene.resume();
     }
   }
 
   private goToMenu(): void {
     // Resume and stop game scene, go to menu
-    const gameScene = this.scene.get('GameScene');
-    gameScene.scene.resume();
-    gameScene.scene.stop();
+    const pinballScene = this.scene.get('PinballScene');
+    pinballScene.scene.resume();
+    pinballScene.scene.stop();
     this.scene.stop();
     this.scene.start('MenuScene');
   }

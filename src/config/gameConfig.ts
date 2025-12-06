@@ -17,7 +17,7 @@ export const gameConfig: Phaser.Types.Core.GameConfig = {
     default: 'matter',
     matter: {
       gravity: { x: 0, y: 1 },
-      debug: true, // Turn off for production
+      debug: false,
     },
   },
   scene: [], // Scenes will be added in main.ts
