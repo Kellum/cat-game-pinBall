@@ -16,7 +16,6 @@ export class PinballScene extends Phaser.Scene {
   private bumpers: Bumper[] = [];
   private leftFlipper!: Flipper;
   private rightFlipper!: Flipper;
-  private _drainZone!: DrainZone;
 
   // Input state
   private isDragging = false;
@@ -53,7 +52,7 @@ export class PinballScene extends Phaser.Scene {
     this.createTableWalls();
 
     // Create drain zone at bottom
-    this._drainZone = new DrainZone(this);
+    new DrainZone(this);
 
     // Create flippers
     const flipperY = GAME_HEIGHT - 200;
